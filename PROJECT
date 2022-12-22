@@ -1,0 +1,16 @@
+domain: com.ramos
+layout:
+- go.kubebuilder.io/v3
+projectName: es-provisioner-operator
+repo: com.ramos/es-provisioner
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: com.ramos
+  group: es-provisioner
+  kind: Index
+  path: com.ramos/es-provisioner/api/v1
+  version: v1
+version: "3"

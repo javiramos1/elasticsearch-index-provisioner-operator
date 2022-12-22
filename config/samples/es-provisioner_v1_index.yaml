@@ -1,0 +1,37 @@
+apiVersion: es-provisioner.com.ramos/v1
+kind: Index
+metadata:
+  labels:
+    app.kubernetes.io/name: index
+    app.kubernetes.io/instance: index-sample
+    app.kubernetes.io/part-of: es-provisioner-operator
+    app.kuberentes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: es-provisioner-operator
+  name: index-sample
+spec:
+  application: test
+  sourceEnabled: true
+  numberOfShards: 2
+  numberOfReplicas: 0
+  properties: |-
+    "field1": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "internal_id": {
+        "type": "keyword"
+      },
+      "name": {
+        "analyzer": "standard",
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      }
+      

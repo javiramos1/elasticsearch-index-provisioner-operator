@@ -1,0 +1,27 @@
+# permissions for end users to view indices.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: index-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: es-provisioner-operator
+    app.kubernetes.io/part-of: es-provisioner-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: index-viewer-role
+rules:
+- apiGroups:
+  - es-provisioner.com.ramos
+  resources:
+  - indices
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - es-provisioner.com.ramos
+  resources:
+  - indices/status
+  verbs:
+  - get
